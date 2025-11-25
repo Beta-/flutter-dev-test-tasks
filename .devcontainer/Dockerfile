@@ -1,29 +1,23 @@
+# Use a lightweight Ubuntu base
 FROM mcr.microsoft.com/devcontainers/base:ubuntu
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
-    curl \
-    git \
-    unzip \
-    xz-utils \
-    libglu1-mesa \
+    curl git unzip xz-utils libglu1-mesa \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Flutter SDK
-RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
-RUN chown -R vscode:vscode /usr/local/flutter
-RUN git config --global --add safe.directory /usr/local/flutter
+# Clone Flutter into a local, writable path inside the workspace
+RUN git clone https://github.com/flutter/flutter.git /workspaces/flutter -b stable
 
+# Add flutter to PATH for all users
+ENV PATH="/workspaces/flutter/bin:$PATH"
 
-# Add Flutter + Dart to PATH
-ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
-
-# Enable web and pre-cache artifacts
+# Enable Flutter web + pre-cache
 RUN flutter config --enable-web && flutter precache --web
 
-# Doctor check
+# Check installation
 RUN flutter doctor
 
-# Add flutterweb shortcut
-RUN echo -e '#!/bin/bash\nflutter run -d web-server --web-hostname=0.0.0.0 --web-port=5000' \
+# Optional: add a helper command to run Flutter web quickly
+RUN echo -e '#!/bin/bash\ncd /workspaces/coding-task && flutter run -d web-server --web-hostname=0.0.0.0 --web-port=5000' \
     > /usr/local/bin/flutterweb && chmod +x /usr/local/bin/flutterweb

@@ -4,5 +4,6 @@
   "editor.tabSize": 2,
   "files.autoSave": "afterDelay",
   "dart.previewFlutterUiGuides": true,
-  "dart.showTodos": true
+  "dart.showTodos": true,
+  "dart.flutterSdkPath": "/workspaces/flutter"
 }

@@ -15,11 +15,12 @@
         "editor.tabSize": 2,
         "files.autoSave": "afterDelay",
         "dart.previewFlutterUiGuides": true,
-        "dart.showTodos": true
+        "dart.showTodos": true,
+        "dart.flutterSdkPath": "/workspaces/flutter"
       }
     }
   },
   "forwardPorts": [5000],
-  "postCreateCommand": "flutter pub get",
+  "postCreateCommand": "cd coding-task && flutter pub get",
   "remoteUser": "vscode"
 }
