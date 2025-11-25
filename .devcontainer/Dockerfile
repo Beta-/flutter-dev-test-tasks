@@ -9,9 +9,18 @@ RUN apt-get update && apt-get install -y \
     libglu1-mesa \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Flutter
+# Install Flutter SDK
 RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
+
+# Add Flutter + Dart to PATH
 ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
 
-# Pre-download Flutter artifacts for web
+# Enable web and pre-cache artifacts
 RUN flutter config --enable-web && flutter precache --web
+
+# Doctor check
+RUN flutter doctor
+
+# Add flutterweb shortcut
+RUN echo -e '#!/bin/bash\nflutter run -d web-server --web-hostname=0.0.0.0 --web-port=5000' \
+    > /usr/local/bin/flutterweb && chmod +x /usr/local/bin/flutterweb

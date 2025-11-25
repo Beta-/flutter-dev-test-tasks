@@ -8,8 +8,18 @@
       "extensions": [
         "Dart-Code.flutter",
         "Dart-Code.dart-code"
-      ]
+      ],
+      "settings": {
+        "dart.flutterHotReloadOnSave": true,
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2,
+        "files.autoSave": "afterDelay",
+        "dart.previewFlutterUiGuides": true,
+        "dart.showTodos": true
+      }
     }
   },
-  "postCreateCommand": "flutter doctor"
+  "forwardPorts": [5000],
+  "postCreateCommand": "flutter pub get",
+  "remoteUser": "vscode"
 }

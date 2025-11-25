@@ -1,0 +1,8 @@
+{
+  "dart.flutterHotReloadOnSave": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "files.autoSave": "afterDelay",
+  "dart.previewFlutterUiGuides": true,
+  "dart.showTodos": true
+}
