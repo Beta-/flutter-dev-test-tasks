@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install -y \
 
 # Install Flutter SDK
 RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
+RUN git config --global --add safe.directory /usr/local/flutter
+
 
 # Add Flutter + Dart to PATH
 ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
