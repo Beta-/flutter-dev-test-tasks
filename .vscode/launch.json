@@ -5,8 +5,14 @@
       "name": "Run Coding Task (Flutter Web)",
       "request": "launch",
       "type": "dart",
-      "program": "coding-task/lib/main.dart",
-      "cwd": "${workspaceFolder}/coding-task"
+      "program": "lib/main.dart",
+      "cwd": "${workspaceFolder}/coding-task",
+      "args": [
+        "-d",
+        "web-server",
+        "--web-hostname=0.0.0.0",
+        "--web-port=5000"
+      ]
     }
   ]
 }

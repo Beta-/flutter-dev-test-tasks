@@ -3,7 +3,6 @@ The application crashes or becomes sluggish after navigating away
 from the news list screen multiple times. Memory usage continuously increases. 
 */
 
-
 class NewsListWidget extends StatefulWidget {
   @override
   State<NewsListWidget> createState() => _NewsListWidgetState();

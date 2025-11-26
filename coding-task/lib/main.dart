@@ -16,6 +16,7 @@ class PostsApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const PostsScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

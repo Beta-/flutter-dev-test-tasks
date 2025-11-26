@@ -10,7 +10,7 @@
         "Dart-Code.dart-code"
       ],
       "settings": {
-        "dart.flutterHotReloadOnSave": true,
+        "dart.flutterHotReloadOnSave": "all",
         "editor.formatOnSave": true,
         "editor.tabSize": 2,
         "files.autoSave": "afterDelay",
@@ -20,7 +20,9 @@
       }
     }
   },
-  "forwardPorts": [5000],
+  "forwardPorts": [
+    5000
+  ],
   "postCreateCommand": "cd coding-task && flutter pub get",
   "remoteUser": "vscode"
 }
